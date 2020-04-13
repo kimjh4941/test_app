@@ -41,6 +41,7 @@ class AddViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        print("AddViewController viewWillDisappear")
         
         // Keyboard Notification Remove
         NotificationCenter.default.removeObserver(UIResponder.keyboardWillShowNotification)
