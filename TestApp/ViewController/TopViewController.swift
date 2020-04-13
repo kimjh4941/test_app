@@ -27,6 +27,9 @@ class TopViewController: UIViewController, AddDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("TopViewController#viewDidLoad")
+        // 戻るの文言を非表示
+        navigationController?.navigationBar.topItem?.title = " "
+        
         // Postのリスト情報を取得
         postViewModel.getPosts()
         

@@ -20,7 +20,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet private weak var message: UILabel!
     // 削除ボタン
     @IBOutlet public weak var delete: UIButton!
-    
+        
     // 初期化
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +32,7 @@ class TableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+        // Configure the view for the selected state.
     }
     
     // MARK: - Method

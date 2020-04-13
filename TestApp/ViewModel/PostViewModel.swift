@@ -36,7 +36,7 @@ class PostViewModel {
                 self.posts.accept(posts)
                 print("posts value", self.posts.value)
                 self.isLoading.accept(false)
-                self.isError.accept(true)
+                self.isError.accept(false)
             },
            onError: { error in
                 self.isLoading.accept(false)
