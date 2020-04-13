@@ -8,23 +8,26 @@
 
 import UIKit
 
+// AddDelegate
 protocol AddDelegate {
+    //「投稿する」ボタン押下時、呼ばれるCallBack
     func postAdded(post: Post)
 }
 
+// AddViewControllerクラス
 class AddViewController: UIViewController {
-
-    @IBOutlet weak private var name: UITextField!
+    // ユーザー名
+    @IBOutlet private weak var name: UITextField!
+    // メッセージ
+    @IBOutlet private weak var message: UITextView!
+    // AddDelegate
+    public var addDelegate: AddDelegate?
     
-    @IBOutlet weak private var message: UITextView!
+    // MARK: - LifeCycle
     
-    var addDelegate: AddDelegate?
-    
-//    var postViewModel: PostViewModel?
-        
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("AddViewController viewDidLoad")
+        print("AddViewController#viewDidLoad")
         // Do any additional setup after loading the view.
     }
 
@@ -38,26 +41,16 @@ class AddViewController: UIViewController {
     }
     */
     
+    // MARK: - Event
+    
+    //「投稿する」ボタン押下時、呼ばれるCallBack
     @IBAction func postButtonPushed() {
-        print("AddViewController postButtonPushed")
-//        // storyboardのインスタンス取得（別のstoryboardの場合）
-//        let addStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        // 遷移先ViewControllerのインスタンス取得
-//        let viewController = addStoryboard.instantiateViewController(withIdentifier: "main") as! ViewController
-        
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .medium
-        print("date: " + formatter.string(from: date))
-
-        let post = Post(id: 0, user: User(login: name.text ?? "", avatar_url: ""),
-                        body: message.text,
-                        created_at: formatter.string(from: date),
-                        updated_at: formatter.string(from: date))
-
-//        print("test: " + viewController.test)
-        
+        print("AddViewController#postButtonPushed")
+        let post: Post = Post(id: 0,
+                              user: User(login: name.text ?? "", avatar_url: ""),
+                              body: message.text,
+                              created_at: DateUtil.stringFromDate(date: Date(), format: "yyyy-MM-dd HH:mm:ss"),
+                              updated_at: DateUtil.stringFromDate(date: Date(), format: "yyyy-MM-dd HH:mm:ss"))
         addDelegate?.postAdded(post: post)
         self.navigationController?.popViewController(animated: true)
     }

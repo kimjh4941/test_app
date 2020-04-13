@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  TestApp
+
+  Created by Kim Jong Hyun on 2020/04/13.
+  Copyright © 2020 Kim Jong Hyun. All rights reserved.
+*/
+
+// エラー
+"error_title" = "エラー";
+"error_message" = "予期せぬエラーが発生しました。";
