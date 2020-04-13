@@ -2,8 +2,8 @@
 //  TableViewCell.swift
 //  TestApp
 //
-//  Created by Kim Jong Hyun on 2020/04/12.
-//  Copyright © 2020 Kim Jong Hyun. All rights reserved.
+//  Created by lee su rim on 2020/04/12.
+//  Copyright © 2020 lee su rim. All rights reserved.
 //
 
 import UIKit
